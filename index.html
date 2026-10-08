@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    // Thumbnail
+    let thumbNail = "Selamat datang di Game Tebak Angka Sederhana!";
+    alert(thumbNail);
+
+    // Konfirmasi
+    const konfirmasi = confirm("Apakah ingin bermain tebak angka?");
+
+    if (konfirmasi == false) {
+        alert("Tidak apa! Silahkan coba di lain waktu");
+    }
+
+    if (konfirmasi == true) {
+
+        let kesempatan = 3;
+
+        let angkaRandom = Math.floor(Math.random() * 10) + 1;
+        console.log(angkaRandom);
+
+        while (kesempatan > 0) {
+
+            alert(`Silahkan tebak angka dari 1-10! Kesempatan anda : ${kesempatan}`);
+            let user = prompt("Masukkan angka");
+            if (user === null) {
+                alert("Terima kasih sudah bermain Game Tebak Angka!");
+                break;
+            }
+            user = Number(user);
+
+            if (user > angkaRandom) {
+                kesempatan--;
+                alert("Angka terlalu tinggi!");
+
+            } else if (user < angkaRandom) {
+                kesempatan--;
+                alert("Angka terlalu kecil!");
+
+            } else if (user === angkaRandom) {
+
+                alert("SELAMAT! Tebakan anda berhasil");
+
+                let cobaLagi = confirm("Coba lagi?");
+
+                if (cobaLagi == false) {
+                    alert("Terima kasih sudah bermain! Silahkan coba lagi di lain waktu");
+                    break;
+                }
+                kesempatan = 3;
+                angkaRandom = Math.floor(Math.random() * 10) + 1;
+                console.log(angkaRandom);
+            }
+            if (kesempatan === 0) {
+                alert(`Sisa kesempatan anda : ${kesempatan} ! Silahkan coba lagi di lain waktu`);
+                break;
+            }
+        }
+    }
+</script>
+
+</html>
